@@ -14,7 +14,7 @@ import {
   Factory,
   Settings
 } from 'lucide-react';
-import { predictProductionOutcome, PredictionInput, PredictionResult } from '../lib/productionEngine';
+import { predictProductionOutcome, PredictionInput, PredictionResult } from '../../productionEngine';
 import { cn, formatDuration } from '../lib/utils';
 
 export default function PredictionView() {
