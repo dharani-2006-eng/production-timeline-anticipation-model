@@ -14,7 +14,7 @@ import {
   Factory,
   Settings
 } from 'lucide-react';
-import { predictProductionOutcome, PredictionInput, PredictionResult } from '../lib/gemini';
+import { predictProductionOutcome, PredictionInput, PredictionResult } from '../lib/productionEngine';
 import { cn, formatDuration } from '../lib/utils';
 
 export default function PredictionView() {
@@ -173,7 +173,7 @@ export default function PredictionView() {
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">Ready for Analysis</h3>
                 <p className="text-slate-500 max-w-xs mx-auto">
-                  Enter the production details on the left and click "Anticipate Timeline" to get ML-powered insights.
+                  Enter the production details on the left and click "Anticipate Timeline" to get custom-powered insights.
                 </p>
               </motion.div>
             )}
@@ -197,7 +197,7 @@ export default function PredictionView() {
                     </div>
                  </div>
                  <div className="space-y-4 text-center">
-                   <h3 className="text-xl font-bold text-slate-800">ML Engine Processing</h3>
+                   <h3 className="text-xl font-bold text-slate-800">Neural Engine Processing</h3>
                    <div className="flex gap-2 justify-center">
                      {[0, 1, 2].map(i => (
                        <motion.div 
@@ -290,7 +290,7 @@ export default function PredictionView() {
 
                     <div className="bg-slate-50 rounded-xl p-5 border border-slate-100">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xs font-bold uppercase tracking-wider text-slate-400">ML Reason Analysis</span>
+                        <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Inference Reason Analysis</span>
                       </div>
                       <div className="space-y-3">
                         <p className="text-slate-700 leading-relaxed font-medium">

@@ -25,11 +25,12 @@ import {
   ArrowUpRight,
   Zap,
   Box,
-  Settings
+  Settings,
+  RefreshCcw
 } from 'lucide-react';
 import { cn } from '../lib/utils';
 
-const weeklyData = [
+const initialWeeklyData = [
   { day: 'Mon', planned: 400, actual: 420, delays: 2 },
   { day: 'Tue', planned: 300, actual: 350, delays: 5 },
   { day: 'Wed', planned: 500, actual: 510, delays: 1 },
@@ -38,7 +39,7 @@ const weeklyData = [
   { day: 'Sat', planned: 400, actual: 405, delays: 1 },
 ];
 
-const machineEfficiency = [
+const initialMachineEfficiency = [
   { name: 'M01', value: 92, status: 'stable' },
   { name: 'M02', value: 85, status: 'warning' },
   { name: 'M03', value: 98, status: 'stable' },
@@ -54,8 +55,38 @@ const delayReasons = [
 ];
 
 export default function DashboardView() {
+  const [data, setData] = React.useState(initialWeeklyData);
+  const [machines, setMachines] = React.useState(initialMachineEfficiency);
+  const [lastUpdated, setLastUpdated] = React.useState(new Date());
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      // Simulate data refresh with slight jitter
+      setData(prev => prev.map(item => ({
+        ...item,
+        actual: Math.max(0, item.actual + (Math.random() > 0.5 ? 5 : -5))
+      })));
+      
+      setMachines(prev => prev.map(m => ({
+        ...m,
+        value: Math.min(100, Math.max(0, m.value + (Math.random() > 0.5 ? 1 : -1)))
+      })));
+      
+      setLastUpdated(new Date());
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="space-y-8">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2 text-slate-400 text-[10px] font-bold uppercase tracking-widest bg-slate-50 px-3 py-1.5 rounded-full border border-slate-100">
+          <RefreshCcw className="w-3 h-3 animate-spin duration-[3000ms] text-industrial-blue" />
+          <span>Real-time Sync Active</span>
+          <span className="ml-2 font-mono opacity-50">T+ {lastUpdated.toLocaleTimeString()}</span>
+        </div>
+      </div>
       {/* Top Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard 
@@ -114,7 +145,7 @@ export default function DashboardView() {
           
           <div className="h-[350px] w-full">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={weeklyData}>
+              <AreaChart data={data}>
                 <defs>
                   <linearGradient id="colorPlanned" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3}/>
@@ -210,7 +241,7 @@ export default function DashboardView() {
                <button className="text-xs font-bold text-industrial-blue hover:underline">Full Diagnostic</button>
             </div>
             <div className="space-y-6">
-               {machineEfficiency.map((machine) => (
+               {machines.map((machine) => (
                  <div key={machine.name} className="space-y-2">
                     <div className="flex justify-between items-center">
                        <div className="flex items-center gap-2">

@@ -26,7 +26,7 @@ export default function Layout({ children, activeTab, setActiveTab, user, handle
 
   const navigation = [
     { id: 'dashboard', name: 'Dashboard', icon: LayoutDashboard },
-    { id: 'prediction', name: 'AI Prediction', icon: Factory },
+    { id: 'prediction', name: 'Predictive Analysis', icon: Factory },
     { id: 'history', name: 'Production Logs', icon: History },
     { id: 'settings', name: 'Settings', icon: Settings },
   ];
@@ -37,9 +37,9 @@ export default function Layout({ children, activeTab, setActiveTab, user, handle
       <aside className="hidden md:flex flex-col w-64 bg-slate-900 text-white h-screen sticky top-0">
         <div className="p-6 flex items-center gap-3">
           <div className="w-10 h-10 bg-industrial-amber rounded-lg flex items-center justify-center font-bold text-slate-900 text-xl">
-            P
+            F
           </div>
-          <span className="text-xl font-bold tracking-tight">ProSync AI</span>
+          <span className="text-xl font-bold tracking-tight">ForgeAI</span>
         </div>
 
         <nav className="flex-1 px-4 py-4 space-y-1">
@@ -88,9 +88,9 @@ export default function Layout({ children, activeTab, setActiveTab, user, handle
       <header className="md:hidden bg-slate-900 text-white p-4 flex items-center justify-between sticky top-0 z-50">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-industrial-amber rounded-md flex items-center justify-center font-bold text-slate-900">
-            P
+            F
           </div>
-          <span className="font-bold tracking-tight">ProSync AI</span>
+          <span className="font-bold tracking-tight">ForgeAI</span>
         </div>
         <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X /> : <Menu />}

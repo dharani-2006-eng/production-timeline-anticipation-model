@@ -24,7 +24,7 @@ export default function AuthView({ onLogin }: AuthViewProps) {
           <div className="w-20 h-20 bg-industrial-amber rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-industrial-amber/20">
             <Factory className="w-12 h-12 text-slate-900" />
           </div>
-          <h1 className="text-3xl font-black text-slate-900 tracking-tighter mb-2">ProSync Industrial AI</h1>
+          <h1 className="text-3xl font-black text-slate-900 tracking-tighter mb-2">ProSync Industrial System</h1>
           <p className="text-slate-500 font-medium">Production Timeline Anticipation Engine</p>
         </div>
 
@@ -35,7 +35,7 @@ export default function AuthView({ onLogin }: AuthViewProps) {
             </div>
             <div>
               <p className="text-sm font-bold text-slate-800">Secure Access</p>
-              <p className="text-xs text-slate-500">ML models protected by enterprise-grade security protocols.</p>
+              <p className="text-xs text-slate-500">Proprietary logic protected by enterprise-grade security protocols.</p>
             </div>
           </div>
 
@@ -65,7 +65,7 @@ export default function AuthView({ onLogin }: AuthViewProps) {
 
       {/* Footer Branding */}
       <div className="absolute bottom-8 left-0 right-0 text-center opacity-30">
-        <p className="text-white text-xs font-mono tracking-widest uppercase italic">Project Submission: ProSync ML v2.4</p>
+        <p className="text-white text-xs font-mono tracking-widest uppercase italic">Project Submission: ProSync v2.4</p>
       </div>
     </div>
   );

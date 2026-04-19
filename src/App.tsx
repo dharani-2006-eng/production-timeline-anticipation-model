@@ -29,6 +29,7 @@ export default function App() {
     const timer = setTimeout(() => {
       setIsInitializing(false);
     }, 1000);
+    document.title = "ForgeAI | Advanced Manufacturing System";
     return () => clearTimeout(timer);
   }, []);
 
@@ -46,8 +47,8 @@ export default function App() {
       <div className="min-h-screen bg-slate-900 flex flex-col items-center justify-center p-8 text-white">
         <div className="w-16 h-16 border-4 border-slate-800 border-t-industrial-blue rounded-full animate-rotate mb-6"></div>
         <div className="space-y-2 text-center">
-          <h2 className="text-xl font-bold tracking-tight">ProSync Manufacturing AI</h2>
-          <p className="text-slate-500 text-sm font-mono animate-pulse">Initializing Neural Inference Engine...</p>
+          <h2 className="text-xl font-bold tracking-tight">ForgeAI Manufacturing System</h2>
+          <p className="text-slate-500 text-sm font-mono animate-pulse">Initializing Custom Inference Engine...</p>
         </div>
         <style dangerouslySetInnerHTML={{ __html: `
           @keyframes rotate {
@@ -81,7 +82,7 @@ export default function App() {
           </div>
           <h2 className="text-2xl font-bold text-slate-800 mb-2">System Preferences</h2>
           <p className="text-slate-500 mb-8">
-            Configure industrial thresholds, ML sensitivity, and real-time data sync intervals.
+            Configure industrial thresholds, custom logic sensitivity, and real-time data sync intervals.
           </p>
           <div className="space-y-4 text-left max-w-md mx-auto">
              <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg border border-slate-100">
